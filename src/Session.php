@@ -1,8 +1,15 @@
 <?php
+/**
+ * App Session wrapper
+ * 
+ * @category   Session
+ * @package    App
+ * @author     Ricardo Striquer Soares <rstriquer.gmail>
+ * @license    https://github.com/rstriquer/php-ps4-sample/blob/master/LICENSE
+ * @version    Release: @package_version@
+ */
 
-
-namespace Cms;
-
+namespace App;
 
 final class Session
 {
@@ -34,18 +41,9 @@ final class Session
     {
         $_SESSION[$key] = $value;
     }
-    public static function setArray(string $key, array $value): void
-    {
-        $_SESSION[$key] = serialize($value);
-    }
 
     public static function get(string $key): ?string
     {
         return $_SESSION[$key] ?? null;
-    }
-    public static function getArray(string $key): ?array
-    {
-        if (!isset($_SESSION[$key])) return [];
-        return unserialize($_SESSION[$key]) ?? null;;
     }
 }

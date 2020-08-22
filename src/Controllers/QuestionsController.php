@@ -1,15 +1,23 @@
 <?php
+/**
+ * App QuestionsController.
+ * 
+ * @category   Controller
+ * @package    App\Controller
+ * @author     Ricardo Striquer Soares <rstriquer.gmail>
+ * @license    https://github.com/rstriquer/php-ps4-sample/blob/master/LICENSE
+ * @version    Release: @package_version@
+ */
 
+namespace App\Controllers;
 
-namespace Cms\Controllers;
-
+use App\Services\QuestionService;
+use App\Http;
 use Exception;
-use Cms\Services\QuestionService;
-use Cms\Http;
 
 class QuestionsController extends Controller
 {
-    use \Cms\Http\JsonResponseTrait;
+    use \App\Http\JsonResponseTrait;
 
     private QuestionService $questionService;
 
@@ -21,20 +29,61 @@ class QuestionsController extends Controller
 
     public function initGame(): void
     {
-        $this->json($this->questionService->initGame());
+        try {
+            $this->json($this->questionService->initGame());
+        } catch (\Exception | \RuntimeException $e) {
+            if (! $e instanceof \Exception) {
+                if (getenv('APP_DEBUG')) {
+                    $e = new Exception($e->getMessage(), $e->getCode(), $e);
+                } else {
+                    $e = new Exception('Undefined error', $e->getCode(), $e);
+                }
+            }
+            $this->jsonError($e);
+        }
     }
     public function startRound() : void
     {
-        $this->json($this->questionService->startRound());
+        try {
+            $this->json($this->questionService->startRound());
+        } catch (\Exception $e) {
+            $this->jsonError($e);
+        }
     }
-    public function getYes() : bool {
-        $this->json($this->questionService->yes());
+    public function getYes() : bool
+    {
+        try {
+            $this->json($this->questionService->yes());
+        } catch (\Exception $e) {
+            $this->jsonError($e);
+        }
     }
 
-    public function getNo() : bool {
-        $this->json($this->questionService->no());
+    public function getNo() : bool
+    {
+        try {
+            $this->json($this->questionService->no());
+        } catch (\Exception $e) {
+            $this->jsonError($e);
+        }
     }
-    public function addLink() : bool {
-        $this->json($this->questionService->addLink($this->requestBody));
+    public function addLink() : bool
+    {
+        try {
+            $this->json($this->questionService->addLink($this->requestBody));
+        } catch (\Exception | \RuntimeException $e) {
+            if (! $e instanceof \Exception) {
+                $e = new Exception($e->getMessage(), $e->getCode(), $e);
+            }
+            $this->jsonError($e);
+        }
+    }
+    public function showKnowledge(): bool
+    {
+        try {
+            $this->json($this->questionService->showKnowledge($this->requestBody));
+        } catch (\Exception $e) {
+            $this->jsonError($e);
+        }
     }
 }
