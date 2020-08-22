@@ -101,7 +101,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"name\": \"Macarrão\",\n    \"what\": \"Fervido\"\n}",
+					"raw": "{\n    \"definition\": \"Boiled\"\n    \"element\": \"Spaghetti\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -124,7 +124,27 @@
 			"response": []
 		},
 		{
-			"name": "No interface (404 not found)",
+			"name": "Show Knowledge",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/knowledge",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"knowledge"
+					]
+				},
+				"description": "Presents the database contents"
+			},
+			"response": []
+		},
+		{
+			"name": "No interface sample (401 Unauthorized)",
 			"request": {
 				"method": "POST",
 				"header": [],
