@@ -44,12 +44,11 @@ To get started, take the following steps:
 
 1. Local clone repository;
 2. Import postman collection on your prefered postman client;
-2. Run composer install;
-3. Create a ".env" file (could copy from ".env.dev" file)
-4. Touch the DB_DATABASE reffered file on .env ('default to /tmp/php-ps4.sample)
-4. Run migrations (with command: ```php vendor/bin/phinx migrate -c ./src/Migrations/2020_08_20_000000_create_question_table.php```)
-5. Run ``` php -S localhost:8000 ``` (or use docker as sampled tipped in the item "requirements" right above)
-6. Play the game using postman collection!
+3. Run composer install;
+4. Create a ".env" file (could copy from ".env.dev" file)
+5. Touch the DB_DATABASE reffered file on .env ('default to /tmp/php-ps4.sample)
+6. Run ``` php -S localhost:8000 ``` (or use docker as sampled tipped in the item "requirements" right above)
+7. Play the game using postman collection!
 
 Its database agnostic, you can chose another one aside SQLite if you will
 
