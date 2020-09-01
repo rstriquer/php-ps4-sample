@@ -1,7 +1,7 @@
-# PHP PS-4 sample
+# PHP PSR-4 sample
 
 ## Description
-Sample code for how PS4 autoload works in PHP
+Sample code for how PSR4 autoload works in PHP
 
 The system is a spceialist system (uses a low level artificial inteligence
 architecture known as specialist) to play a guessing game. Whenever it miss a
@@ -18,13 +18,13 @@ Lasagna is a Pasta, but it has no idea how much pasta and how much cheese it
 has in its content in relation to a pasta boiled with salt. Literaly it cannot
 say how much "Pasta" is "Lasagna" nor teh other way around.;
 
-*) By default it creates a file in "/tmp/php-ps4.sample" to store database (its
+*) By default it creates a file in "/tmp/php-psr4.sample" to store database (its
 the database schema repository file). you can change it at the ".env" file
 
 ## Requirements
 - PHP 7.4+ (will not work with previous versions) with php7.0-sqlite (the docker image bellow have it)
 - [Composer](https://getcomposer.org/)
-- [Postman](https://www.postman.com/) to import "resources/postman/PHP PS4 Sample.postman_collection.json"
+- [Postman](https://www.postman.com/) to import "resources/postman/PHP PSR4 Sample.postman_collection.json"
 - SQLite
 - Unix-Like operational system**
 
@@ -36,7 +36,8 @@ or other operational system the UUID generator may need a fix, but in essence,
 all linux distributions and "Unix System V" standards systems must provide some
 kind of proprietary UUID generator file.
 
-If you don't have **PHP 7.4+** you can just do ```docker run -it --rm --name my-running-script -p 8000:8000 -v /tmp/php-ps4.sample:/tmp/php-ps4.sample -v "$PWD":/usr/src/myapp -w /usr/src/myapp php:7.4-cli php -S 0.0.0.0:8000``` at your project folder and you should be
+If you don't have **PHP 7.4+** you can just do ```docker run -it --rm --name my-running-script -p 8000:8000 -v /tmp/php-
+.sample:/tmp/php-ps4.sample -v "$PWD":/usr/src/myapp -w /usr/src/myapp php:7.4-cli php -S 0.0.0.0:8000``` at your project folder and you should be
 good to go asap.
 
 ## Getting started
